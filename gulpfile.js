@@ -1,5 +1,9 @@
 var elixir = require('laravel-elixir');
 
+var postStylus = require('poststylus');
+
+require('laravel-elixir-stylus');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +16,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.stylus('app.styl', null, {
+        use: [postStylus(['lost', 'postcss'])]
+    });
 });

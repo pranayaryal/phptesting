@@ -8,12 +8,9 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    {{--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--}}
-    <link href="/css/app.css" rel="stylesheet" type="text/css" >
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -26,55 +23,37 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="Card">
 
-            <div>
-                <h3>Nested grid</h3>
-            </div>
-            <div>
+        <tasks></tasks>
 
-                <div>
-                    <h3>Nested Again!!!</h3>
-                </div>
-                <div>
-                    <h3>hahah this is fun</h3>
-                </div>
-            </div>
-        </div>
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
-
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
-        <div class="Card">
-            <h3>My Card</h3>
-        </div>
     </div>
 
+    <template id="tasks-template">
+        <h1>My Tasks</h1>
+
+        <ul class="list-group">
+
+            <li class="list-group-item" v-for="task in list">
+
+                @{{ task.body }}
+
+                <strong @click="delete(task)">X</strong>
+
+            </li>
 
 
 
 
-        <!-- JavaScripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.min.js"></script>
-{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+        </ul>
+
+    </template>
+
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.13/vue.js"></script>
+    <script src="/js/main.js"></script>
 </body>
+
+<!-- JavaScripts -->
+
 </html>

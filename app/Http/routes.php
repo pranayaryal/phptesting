@@ -13,9 +13,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
 
     Route::get('/', function () {
-        $task = App\Task::latest()->get();
 
-        return view('layouts.trying', compact($task));
+
+        $tasks = App\Task::latest()->get();
+
+
+        return view('layouts.trying', compact('tasks'));
     });
 
 
@@ -31,6 +34,11 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/home', function () {
         return view('home');
+    });
+
+    Route::get('api/tasks', function ()
+    {
+        return App\Task::latest()->get();
     });
 
 });
